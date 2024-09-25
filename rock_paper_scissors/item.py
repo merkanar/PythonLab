@@ -1,4 +1,3 @@
-
 #   base class for all items
 class Item:
 
@@ -13,5 +12,5 @@ class Item:
         return self.name.lower().startswith(name.lower())
 
     #   base method for fighting, should be overridden by subclasses
-    def fight(self, other):
-        return "Invalid"
+    def fight(self, other: 'Item'):
+        return None

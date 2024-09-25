@@ -1,7 +1,9 @@
+import sys
 from random import randint
 
 from paper import Paper
 from rock import Rock
+from result import Result, COMPUTER_WINS, USER_WINS
 from scissors import Scissors
 
 #   RockPaperScissors class to play the game
@@ -21,8 +23,7 @@ class RockPaperScissors:
             if user_input == "" or selection is None:
                 print("Invalid selection")
             else:
-                result = random_item.fight(selection)
-                print(result)
+                self.process_result(random_item.fight(selection))
 
     # find the item with the user input string
     def find_item(self, name):
@@ -32,3 +33,23 @@ class RockPaperScissors:
     def get_random_item(self):
         random_index = randint(0,2)
         return self.items[random_index]
+
+    results = {}
+    limit = 5
+
+    def process_result(self, result: Result):
+        if result is None:
+            print("Invalid")
+        print(result.message)
+        count = self.results.get(result.result, 0) + 1
+        if count >= self.limit:
+            if result.result == COMPUTER_WINS:
+                print("YOU LOSE!")
+                sys.exit()
+            elif result.result == USER_WINS:
+                print("YOU WIN!")
+                sys.exit()
+        self.results[result.result] = count
+
+
+
