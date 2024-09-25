@@ -1,4 +1,5 @@
-from result import Result, COMPUTER_WINS, USER_WINS, DRAW
+from random import randint
+from results import Result, COMPUTER_WINS, USER_WINS, DRAW
 
 #   base class for all items
 class Item:
@@ -59,5 +60,13 @@ class Rock(Item):
         else:
             return Result(DRAW, "Draw")
 
-def get_all_items():
-    return [Rock(), Paper(), Scissors()]
+items = [Rock(), Paper(), Scissors()]
+
+# find the item with the user input string
+def find_item(name):
+    return next((item for item in items if item.matches(name)), None)
+
+# get a random item for the computer selection
+def get_random_item():
+    random_index = randint(0,2)
+    return items[random_index]
