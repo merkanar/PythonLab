@@ -16,10 +16,10 @@ class RockPaperScissors:
         while True:
             random_item = self.get_random_item()
             user_input = input("(R)ock, (P)aper, (S)cissors?")
-            selection = self.find_item(user_input)
             if user_input == "q":
                 print("Thank you for playing, goodbye!")
                 break
+            selection = self.find_item(user_input)
             if user_input == "" or selection is None:
                 print("Invalid selection")
             else:
@@ -37,6 +37,7 @@ class RockPaperScissors:
     results = {}
     limit = 5
 
+    # process the result of the fight. If the user has won or lost, exit the game
     def process_result(self, result: Result):
         if result is None:
             print("Invalid")
