@@ -13,8 +13,12 @@ class RockPaperScissors:
     def play(self):
         while True:
             random_item = self.get_random_item()
-            selection = self.find_item(input("(R)ock, (P)aper, (S)cissors?"))
-            if selection is None:
+            user_input = input("(R)ock, (P)aper, (S)cissors?")
+            selection = self.find_item(user_input)
+            if user_input == "q":
+                print("Thank you for playing, goodbye!")
+                break
+            if user_input == "" or selection is None:
                 print("Invalid selection")
             else:
                 result = random_item.fight(selection)
