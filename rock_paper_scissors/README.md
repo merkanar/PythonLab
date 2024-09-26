@@ -1,22 +1,22 @@
-# PythonLab: "Rock, Paper, Scissors" spel
+# PythonLab: "Rock, Paper, Scissors" game
 
-Detta är spelet "Rock, Paper, Scissors".
+This folder contains the game called "Rock, Paper, Scissors".
 
-## Hur spelet fungerar
+## How is the game played?
 
-1. Spelet spelas mot datorn.
-2. Du väljer antingen Rock (eller bokstaven "R"), Paper (eller bokstaven "P"), eller Scissors (eller bokstaven "S").
-3. Datorn väljer slumpmässigt sitt val.
-4. Vinnaren bestäms baserat på följande regler:
-   - Rock vinner över Scissors
-   - Scissors vinner över Paper
-   - Paper vinner över Rock
-   - Om båda spelarna väljer samma, blir det "Draw".
+1. Game is played against the computer.
+2. You input either Rock (or "R"), Paper (or "P"), or Scissors (or "S").
+3. Computer selects a random choice.
+4. Winner is decided by the following rules:
+   - Rock wins over Scissors
+   - Scissors wins over Paper
+   - Paper wins Rock
+   - If the computer and user selects the same choice, then it is a "Draw".
 
-## Hur man kör spelet
+## How do you play?
 
-- Ha minst python3.10 installerat på din dator.
-- Kör "python main.py" för att starta spelet.
+- You should have at least Python 3.10 installed
+- Run "python main.py" to start the game
 
 
 ## Spelkontroller
