@@ -10,6 +10,7 @@ class ResultProcessor:
     def process_result(self, result: 'Result'):
         if result is None:
             print("Invalid")
+            return
         print(result.message)
         count = self.results.get(result.result, 0) + 1
         if count >= self.limit:
