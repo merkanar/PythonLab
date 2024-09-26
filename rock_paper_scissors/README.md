@@ -5,7 +5,7 @@ This folder contains the game called "Rock, Paper, Scissors".
 ## How is the game played?
 
 1. Game is played against the computer.
-2. You input either Rock (or "R"), Paper (or "P"), or Scissors (or "S").
+2. You input either Rock (or "r"), Paper (or "p"), or Scissors (or "s").
 3. Computer selects a random choice.
 4. Winner is decided by the following rules:
    - Rock wins over Scissors
