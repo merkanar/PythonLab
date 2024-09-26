@@ -60,13 +60,16 @@ class Rock(Item):
         else:
             return Result(DRAW, "Draw")
 
-items = [Rock(), Paper(), Scissors()]
+# contains all items and returns random or selected item
+class ItemContainer:
+    def __init__(self):
+        self.items = [Rock(), Paper(), Scissors()]
 
-# find the item with the user input string
-def find_item(name):
-    return next((item for item in items if item.matches(name)), None)
+    # find the item with the user input string
+    def find_item(self, name):
+        return next((item for item in self.items if item.matches(name)), None)
 
-# get a random item for the computer selection
-def get_random_item():
-    random_index = randint(0,2)
-    return items[random_index]
+    # get a random item for the computer selection
+    def get_random_item(self):
+        random_index = randint(0, 2)
+        return self.items[random_index]
