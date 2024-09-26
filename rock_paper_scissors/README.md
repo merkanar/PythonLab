@@ -12,6 +12,7 @@ This folder contains the game called "Rock, Paper, Scissors".
    - Scissors wins over Paper
    - Paper wins Rock
    - If the computer and user selects the same choice, then it is a "Draw".
+5. The game continues until you decide to quit or one side reaches 10 wins.
 
 ## How do you play?
 
