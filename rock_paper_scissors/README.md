@@ -20,8 +20,8 @@ This folder contains the game called "Rock, Paper, Scissors".
 - Run "python main.py" to start the game
 
 
-## Spelkontroller
+## Game controls
 
-- Ange 'r' för Rock, 's' för Scissors, eller 'p' för Paper när du uppmanas.
-- För att avsluta spelet, ange 'q' när som helst.
+- Input 'r' for Rock, 's' for Scissors, or 'p' for Paper
+- To quit the game, input 'q'
 
