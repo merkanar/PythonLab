@@ -1,4 +1,4 @@
-# Supervised Learning Project - Product Recommender
+# Unsupervised Learning Project - Product Recommender
 
 In this project, a product recommendation system will be created on a product purchase data taken from Google Analytics.
 
@@ -23,20 +23,20 @@ Google Analytics purchase, product and user data
 
 Model:
 
-Alternative 1: Use a simple k-Means algorithm. This model can create user / product clusters grouping similar records. 
-For better results, product data should be merged to the purchase data.
+Alternative 1: K-Means algorithm: This model can create user / product clusters grouping similar records. 
+For better results, product data should be merged to the purchase data. For better result, K-Means can be also applied to the product data additionally to identify the similar products.
 
-Alternative 2: Collaborative Filtering
+Alternative 2: Collaborative Filtering: This model tries to extract the recommendations from the past purchase data of similar users.
 
-Alternative 3: Use cosine similarities
+Alternative 3: Cosine similarities:  This approach applies simple correlation for user & product matrix and try to get the close records.  
 
 ### Features
 
 1. Data collection and preprocessing
-2. Mergimg, feature extraction and encoding
-3. Model training (k-NN or Collaborative Filtering)
+2. Data merging, feature extraction and encoding
+3. Model execution (k-Means, Collaborative Filtering, Cosine similarities)
 4. User interface for inputting preferences
-5. Book recommendations based on user input
+5. Product recommendations with already calculated models (more than one model can be used) based on user input (either user, or product or user / product tuple)
 
 #### Limitations
 * Time
@@ -99,8 +99,8 @@ Alternative 3: Use cosine similarities
     * `get_recommendations()`: Generate recommendations for a user
 6. `UserInterface`
     * Manages user interactions and displays recommendations
-    * `get_user_input()`: Prompt user for preferences
-    * `display_recommendations()`: Show recommended books to the user
+    * `get_user_input()`: Prompt user for preferences (either product id, or user id or product id and user id tuple)
+    * `display_recommendations()`: Show recommended products to the user
 
 ## Discussion
 
