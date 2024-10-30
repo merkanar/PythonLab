@@ -1,10 +1,10 @@
-# Unsupervised Learning Project - Product Recommender
+# Unsupervised Learning Project - Product Recommendation System
 
 In this project, a product recommendation system will be created on a product purchase data taken from Google Analytics.
 
 With the purchase and user info, system will decide which products will be recommended to a specific user.
 
-## Specifikation
+## Specification
 
 Product Recommendation System
 
