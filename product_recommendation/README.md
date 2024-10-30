@@ -22,13 +22,18 @@ Data source:
 Google Analytics purchase, product and user data
 
 Model:
-Alternative 1: Use a simple k-Nearest Neighbors (k-NN) algorithm. This model can find products similar to ones a user has purchased
+
+Alternative 1: Use a simple k-Means algorithm. This model can create user / product clusters grouping similar records. 
+For better results, product data should be merged to the purchase data.
+
 Alternative 2: Collaborative Filtering
+
+Alternative 3: Use cosine similarities
 
 ### Features
 
 1. Data collection and preprocessing
-2. Feature extraction and encoding
+2. Mergimg, feature extraction and encoding
 3. Model training (k-NN or Collaborative Filtering)
 4. User interface for inputting preferences
 5. Book recommendations based on user input
@@ -99,4 +104,6 @@ Alternative 2: Collaborative Filtering
 
 ## Discussion
 
-Product recommendation system will recommend products to user based on their previous purchases and product similarities like price, category, name and brand
+Product recommendation system will recommend products to user based on their previous purchases and product similarities like price, category, name and brand.
+
+System will try to use alternative methods and select recommendations using all of them if possible.
