@@ -23,20 +23,16 @@ Google Analytics purchase, product and user data
 
 Model:
 
-Alternative 1: K-Means algorithm: This model can create user / product clusters grouping similar records. 
+K-Means algorithm: This model can create user / product clusters grouping similar records. 
 For better results, product data should be merged to the purchase data. For better result, K-Means can be also applied to the product data additionally to identify the similar products.
-
-Alternative 2: Collaborative Filtering: This model tries to extract the recommendations from the past purchase data of similar users.
-
-Alternative 3: Cosine similarities:  This approach applies simple correlation for user & product matrix and try to get the close records.  
 
 ### Features
 
 1. Data collection and preprocessing
 2. Data merging, feature extraction and encoding
-3. Model execution (k-Means, Collaborative Filtering, Cosine similarities)
-4. User interface for inputting preferences
-5. Product recommendations with already calculated models (more than one model can be used) based on user input (either user, or product or user / product tuple)
+3. Model execution (k-Means)
+4. API interface for inputting parameters
+5. Product recommendations with already calculated model based on user input (either user, or user / product tuple)
 
 #### Limitations
 * Time
@@ -79,33 +75,36 @@ Alternative 3: Cosine similarities:  This approach applies simple correlation fo
 
 **CLASSES and METHODS**
 
-1. `PurchaseData`
-    * Responsible for loading, cleaning and preprocessing product purchase data
-    * `load_data()`
-    * `clean_data()`
-    * `preprocess_data()`
-2. `ProductData`
-    * Handles user information
-    * `load_product_data()`
-3. `UserData`
-    * Handles user information
-    * `load_user_data()`
-4. `FeatureExtractor`
-    * Extracts and encodes features from purchase, product and user data
-    * `encode_categorical_features()`: One-hot encode categorical features
-    * `normalize_numerical_features()`: Scale numerical features
-    * `create_feature_matrix()`: Combine all features into a single matrix
-5. `RecommendationModel`
-    * Implements the chosen recommendation algorithms (k-NN)
-    * `train_model()`: Train the recommendation model
-    * `get_recommendations()`: Generate recommendations for a user
-6. `UserInterface`
-    * Manages user interactions and displays recommendations
-    * `get_user_input()`: Prompt user for preferences (either product id, or user id or product id and user id tuple)
-    * `display_recommendations()`: Show recommended products to the user
+1. `DataProvider`
+    * Responsible for loading, cleaning and preprocessing product & purchase data. And also it merges product and purchase data for detailed clustering. 
+    * `get_purchase_data()`
+    * `get_product_data()`
+    * `get_merged_data()`
+    * `get_item_info()`
+    * `get_user_transaction_info()`
+2. `ProductRecommender`
+    * Runs KMeansEngine with the data it gets from DataProvider and processes the input / output
+    * `run()`: Gets the initial data and initiates the KMeansEngine 
+    * `get_recommendation()`: Processes input, runs KMeans recommendation and processes output
+5. `KMeansEngine`
+    * Implements the KMeans Algorithm
+    * `train()`: Train the recommendation model
+    * `get_recommendations()`: Generate recommendations for a user and possibly a product
+6. `APIInterface`
+    * Manages REST API interfaces
+    * `run_api_interface()`: Initiates and configures REST API 
+    * `get_recommendations()`: Implements GET API for /recommendations. Takes the user id and the product id, and returns the list of recommended product ids.
 
 ## Discussion
 
 Product recommendation system will recommend products to user based on their previous purchases and product similarities like price, category, name and brand.
 
-System will try to use alternative methods and select recommendations using all of them if possible.
+System tries to use k-Means algorithm to identify product clusters. 
+
+To simulate the behavior of the user is visiting a product detail page, both user id and product id is processed to get the recommendations for that user and for that product.
+For this scenario, /recommendations?user_id=X&item_id=Y API service is used.
+
+To simulate the behavior of the user is visiting a main page, only user id is processed to get the recommendations for that user.
+For this scenario, /recommendations?user_id=X API service is used.
+
+In the logs, related purchase and product data with the user and the product is shown. Also the recommended items are listed in detail to check whether the algorithm is working good or not.
