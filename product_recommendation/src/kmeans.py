@@ -43,11 +43,13 @@ class KMeansEngine:
         most_frequent_items_from_user: Series = self.find_most_common_items(filtered_data_by_user_id, item_id)
 
         if item_id is not None:
-            filtered_data_by_item_id = self.merged_data[(self.merged_data['user_id'] == user_id) & (self.merged_data['item_id'] == item_id)]
+            filtered_data_by_item_id = self.merged_data[
+                (self.merged_data['user_id'] == user_id) & (self.merged_data['item_id'] == item_id)]
             if filtered_data_by_item_id.shape[0] == 0:
                 filtered_data_by_item_id = self.merged_data[(self.merged_data['item_id'] == item_id)]
                 if filtered_data_by_item_id is not None:
-                    most_frequent_items_from_user = most_frequent_items_from_user._append(self.find_most_common_items(filtered_data_by_item_id, item_id))
+                    most_frequent_items_from_user = most_frequent_items_from_user._append(
+                        self.find_most_common_items(filtered_data_by_item_id, item_id))
 
         item_ids = []
 
@@ -65,8 +67,3 @@ class KMeansEngine:
         same_cluster_items = self.merged_data[
             (self.merged_data['cluster'] == most_frequent_cluster) & (self.merged_data['item_id'] != item_id)]
         return same_cluster_items['item_id'].value_counts().nlargest(5)
-
-
-
-
-

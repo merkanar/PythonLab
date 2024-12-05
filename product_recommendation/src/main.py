@@ -1,21 +1,10 @@
-from itertools import product
-
+from api_interface import run_api_interface
 from product_recommender import ProductRecommender
-from fastapi import FastAPI
-import uvicorn
-
-app = FastAPI()
-product_recommender = ProductRecommender()
-
-
-@app.get("/get-recommendation")
-async def get_recommendation(user_id: int = None, item_id: int = None):
-    if user_id is None:
-        return "Please provide user id, usage: '/get_recommendation?user_id=X&item_id=Y'"
-    return product_recommender.get_recommendation(user_id, item_id)
 
 # Run the recommender app
 if __name__ == '__main__':
+    product_recommender = ProductRecommender()
     product_recommender.run()
-    print("Product recommender initialized, please use the REST API 'http://localhost:8000/get_recommendation?user_id=X&item_id=Y'")
-    uvicorn.run(app, host='localhost', port=8000)
+    print("Product recommender initialized, please use the REST API 'http://localhost:8000/recommendations?user_id=X&item_id=Y'")
+    run_api_interface(product_recommender)
+

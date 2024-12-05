@@ -15,10 +15,9 @@ class ProductRecommender:
     def run(self):
         self.kmeans_engine.train(self.data_provider.get_merged_data())
 
-
     def get_recommendation(self, user_id, item_id):
 
-        print("********** Get Recommendation, ", user_id, " , " , item_id, "*************")
+        print("********** Get Recommendation, ", user_id, " , ", item_id, "*************")
 
         if item_id is not None:
             item = self.data_provider.get_item_info(item_id)
@@ -28,7 +27,6 @@ class ProductRecommender:
             else:
                 item_id = None
 
-
         user_transaction_info = self.data_provider.get_user_transaction_info(user_id)
 
         print('\n\nUser transaction info:')
@@ -36,7 +34,6 @@ class ProductRecommender:
             print_item(item)
 
         recommendation_list = self.kmeans_engine.get_recommendation(user_id, item_id)
-
 
         print('\n\nRecommendations:')
         for item_id in recommendation_list:
@@ -46,8 +43,3 @@ class ProductRecommender:
         print("***********************")
 
         return recommendation_list
-
-
-
-
-

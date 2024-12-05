@@ -74,6 +74,8 @@ Alternative 3: Cosine similarities:  This approach applies simple correlation fo
 * scikit-learn: machine learning algorithms and preprocessing
 * numpy: numerical operations
 * matplotlib: show dialogs for cluster groupings or other needs
+* fastapi: REST API
+* uvicorn: REST API
 
 **CLASSES and METHODS**
 
