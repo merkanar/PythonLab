@@ -73,8 +73,10 @@ For better results, product data should be merged to the purchase data. For bett
 * fastapi: REST API
 * uvicorn: REST API
 
-**CLASSES and METHODS**
-
+**CLASSES, METHODS, FILES**
+1. `Main`
+    * Responsible for running the program. main.py should run.
+    * `__main__()`
 1. `DataProvider`
     * Responsible for loading, cleaning and preprocessing product & purchase data. And also it merges product and purchase data for detailed clustering. 
     * `get_purchase_data()`
